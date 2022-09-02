@@ -1,0 +1,162 @@
+@import './variable.scss';
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Montserrat', sans-serif;
+}
+
+@font-face {
+    font-family: $rnmfont;
+    src: url("../fonts/get_schwifty-webfont.woff") format("woff");
+}
+
+@font-face {
+    font-family: $vox-font;
+    src: url("../fonts/vox.ttf");
+}
+
+body {
+    background-image: url('https://rickandmortypod.com/storage/2018/11/cropped-RM_page-header_background1-3.png');
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+}
+
+.container {
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.header {
+    position: relative;
+
+    &__logo {
+        object-fit: cover;
+        width: 450px;
+        margin: 0 auto;
+    }
+
+    &__logo-img {
+        width: 100%;
+    }
+
+    &__fixed {
+        object-fit: cover;
+        width: 120px;
+        top: 60px;
+        right: 200px;
+        height: 120px;
+        position: absolute;
+    }
+
+    &__fixed>img {
+        width: 100%;
+    }
+
+    &__fixed>img:last-child {
+        display: none;
+    }
+
+    &__fixed:hover img:last-child {
+        display: block;
+    }
+
+    &__fixed:hover img:first-child {
+        display: none;
+    }
+}
+
+.ricks {
+    object-fit: cover;
+    width: 120px;
+    position: fixed;
+    left: 100px;
+    bottom: 330px;
+    z-index: 3;
+    height: 120px;
+
+    img {
+        width: 100%;
+    }
+
+    &__img2 {
+        display: none;
+    }
+}
+
+.ricks:hover img:last-child {
+    width: 200px;
+    display: block;
+}
+
+.ricks:hover img:first-child {
+    display: none;
+}
+
+
+.mortys {
+    object-fit: cover;
+    width: 120px;
+    position: fixed;
+    right: 100px;
+    bottom: 330px;
+    z-index: 4;
+    height: 120px;
+
+    img {
+        width: 100%;
+        transform: scaleX(-1);
+    }
+
+    &__img2 {
+        display: none;
+    }
+}
+
+.mortys:hover img:last-child {
+    transform: scaleX(1);
+    display: block;
+}
+
+.mortys:hover img:first-child {
+    display: none;
+}
+
+.more-btn {
+    display: block;
+    margin: 0 auto 30px auto;
+    background: $more-background;
+    border: 3px solid $more-border;
+    color: $more-color-text;
+    padding: 10px 20px;
+    font-family: $vox-font;
+    font-size: 1.2rem;
+    line-height: 20px;
+    transition: .2s;
+    cursor: pointer;
+}
+
+.more-btn:hover {
+    background: $more-background-hover;
+    border: 3px solid $more-border-hover;
+    color: $more-color-text-hover;
+}
+
+.more-btn:active {
+    background: $more-background;
+    border: 3px solid $more-border;
+    color: $more-color-text;
+}
+
+.more-btn:focus {
+    background: $more-background-hover;
+    border: 3px solid $more-border-hover;
+    color: $more-color-text-hover;
+    outline: none;
+}
+
+.hidden {
+    display: none;
+}
