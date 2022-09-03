@@ -6,3 +6,8 @@
 # *~
 node_modules/
 dist/
+*.lock
+*.json
+webpack.config.js
+d.ts
+.eslintrc.js
