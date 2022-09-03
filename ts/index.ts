@@ -23,6 +23,16 @@ const deleteChar = (char: HTMLDivElement): void => {
     localStorageWrapper.set('characters', characters);
 }
 
+const checkSameId = (newCharId: number): boolean => {
+    for (let i: number = 0; i < characters.length; i++) {
+        if (characters[i].id === newCharId) {
+            alert(`You've already added the character ${characters[i].name} with ID: ${newCharId}, `);
+            return true;
+        }
+    }
+    return false;
+}
+
 /* This event adds the new character to array of characters and add them to html page */
 document.querySelector('form')!.addEventListener('submit', (e: Event): void => {
     e.preventDefault();
@@ -34,10 +44,11 @@ document.querySelector('form')!.addEventListener('submit', (e: Event): void => {
         alert('The ID should be between 1 and 826!');
         return;
     };
+    if (checkSameId(id)) return
     getFetchData<CharacterInterface>(id)
         .then(char => {
             characters.unshift({ ...char })
-            setAllCharacters(characters, currentCountChars);
+            currentCountChars = setAllCharacters(characters, currentCountChars);
             localStorageWrapper.set('characters', characters);
         })
 

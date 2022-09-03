@@ -27,15 +27,14 @@ const setAllCharacters = (characters: CharacterInterface[], COUNTOFCHAR: number)
   const count: number = COUNTOFCHAR < characters.length ? COUNTOFCHAR : characters.length;
   charWrap.innerHTML = '';
   for (let i: number = 0; i < count; i++) {
-    const char = characters[i];
-    charWrap.innerHTML += generateHtmlTemplate(char)
+    charWrap.innerHTML += generateHtmlTemplate(characters[i])
   }
   if (characters.length > COUNTOFCHAR) {
     loadMoreBtn.classList.remove('hidden');
   } else {
     loadMoreBtn.classList.add('hidden');
   }
-  if (characters.length % 5 === 0 && loadMoreBtn.classList.contains('hidden')) {
+  if (characters.length % 5 === 0 && loadMoreBtn.classList.contains('hidden') && characters.length >= 5) {
     return COUNTOFCHAR = characters.length;
   }
   return COUNTOFCHAR
