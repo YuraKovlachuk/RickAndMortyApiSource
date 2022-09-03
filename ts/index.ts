@@ -7,7 +7,6 @@ import '../scss/style.scss';
 import '../scss/search-box.scss';
 import '../scss/character-box.scss';
 import '../scss/variable.scss';
-import '../scss/delete-modal.scss';
 
 const LOADMORECOUNT = 5; // amount of characters in one load
 let currentCountChars = LOADMORECOUNT; // current amount of characters that can be shown in page
