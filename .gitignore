@@ -10,10 +10,4 @@ dist/
 
 *.lock
 
-*.json
-
-webpack.config.js
-
 d.ts
-
-.eslintrc.js
