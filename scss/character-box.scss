@@ -1,0 +1,125 @@
+@import './variable.scss';
+$border-size: 3px;
+$main-info-size: 25%;
+
+.character-wrap {
+    margin: 10px auto 30px 0;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.character {
+    display: flex;
+    color: $text-color;
+    border: $border-size solid $border-color;
+    width: 38%;
+    box-sizing: border-box;
+    transition: .2s;
+    background: $background-color;
+    position: relative;
+
+
+    &__main-info {
+        width: $main-info-size;
+        display: flex;
+        flex-direction: column;
+        border-right: $border-size solid $border-color;
+        transition: .2s;
+        position: relative;
+    }
+
+    &__main-info:hover {
+        background: $background-color-hover;
+    }
+
+    &__img {
+        width: 100%;
+        height: 100%;
+    }
+
+    &__status {
+        position: absolute;
+        top: 0px;
+        left: 0px;
+        padding: 3px;
+    }
+
+    .alive-status {
+        background-color: $background-color-hover;
+        font-family: $vox-font;
+    }
+
+    .dead-status {
+        background-color: rgb(92, 22, 22);
+        color: rgb(232, 48, 48);
+        font-family: $vox-font;
+    }
+
+    &__name {
+        border-top: $border-size solid $border-color;
+        padding: 5px;
+        text-align: center;
+        font-family: $vox-font;
+        margin-top: auto;
+    }
+
+    &__info {
+        padding: 10px 10px 10px 30px;
+        width: 100% - $main-info-size;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        gap: 5px;
+        transition: .2s;
+    }
+
+    &__info:hover {
+        background: $background-color-hover;
+    }
+
+    &__info * {
+        font-family: $vox-font;
+    }
+
+    &__delete-btn {
+        background-color: rgb(119, 20, 20);
+        width: 40px;
+        height: 40px;
+        position: absolute;
+        z-index: 0;
+        top: 0px;
+        right: 0px;
+        font-size: 1.7rem;
+        color: rgb(236, 13, 13);
+        border: 1px solid rgb(165, 21, 21);
+        cursor: pointer;
+        transform: .2s;
+        font-size: 1.2rem;
+    }
+
+    &__delete-btn:hover {
+        background-color: rgb(76, 19, 19);
+    }
+
+    &__delete-btn:active {
+        background-color: rgb(119, 20, 20);
+    }
+
+    &__delete-btn:focus {
+        background-color: rgb(76, 19, 19);
+        border: 1px solid rgb(255, 0, 0);
+        outline: none;
+    }
+}
+
+.character:hover {
+    border: $border-size solid $hover-color;
+    box-shadow: 0px 0px 50px 1px $border-color;
+}
+
+.dead:hover {
+    border: $border-size solid rgb(213, 17, 17);
+    box-shadow: 0px 0px 50px 1px rgb(213, 17, 17);
+}
