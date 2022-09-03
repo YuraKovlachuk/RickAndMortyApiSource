@@ -7,21 +7,24 @@ import '../scss/style.scss';
 import '../scss/search-box.scss';
 import '../scss/character-box.scss';
 import '../scss/variable.scss';
+import '../scss/delete-modal.scss';
 
-const LOADMORECOUNT = 5
-let currentCountChars = 5;
-const charWrap = document.querySelector('.character-wrap') as HTMLDivElement;
+const LOADMORECOUNT = 5; // amount of characters in one load
+let currentCountChars = LOADMORECOUNT; // current amount of characters that can be shown in page
 
-let characters = localStorageWrapper.get<CharacterInterface[]>('characters')! || [];
+// initialization the array of all characters(if localStorage is empty, init an empty array [])
+let characters = localStorageWrapper.get<CharacterInterface[]>('characters')! || [] as CharacterInterface[];
 
 if (characters) setAllCharacters(characters, currentCountChars); // load characters from localstorage at the first load of the page
 
+/* This function delete the item from characters array and rerender the html page */
 const deleteChar = (char: HTMLDivElement): void => {
     characters = characters.filter(charItem => charItem.id !== +char.dataset.id!)
-    setAllCharacters(characters, currentCountChars);
+    currentCountChars = setAllCharacters(characters, currentCountChars);
     localStorageWrapper.set('characters', characters);
 }
 
+/* This event adds the new character to array of characters and add them to html page */
 document.querySelector('form')!.addEventListener('submit', (e: Event): void => {
     e.preventDefault();
     const target = e.target as HTMLFormElement;
@@ -41,15 +44,15 @@ document.querySelector('form')!.addEventListener('submit', (e: Event): void => {
 
 })
 
-charWrap.addEventListener('click', (e: Event): void => {
+document.querySelector('.character-wrap')!.addEventListener('click', (e: Event): void => {
     const target = e.target as HTMLDivElement | HTMLButtonElement;
     if (target.classList.contains('character__delete-btn')) {
-        deleteChar(target.parentElement as HTMLDivElement)
+        deleteChar(target.parentElement as HTMLDivElement);
     }
+
 })
 
 document.querySelector('.more-btn')!.addEventListener('click', () => {
-    console.log('currentCountChars - ' + currentCountChars)
     currentCountChars += LOADMORECOUNT;
     setAllCharacters(characters, currentCountChars);
 })

@@ -93,7 +93,7 @@ $main-info-size: 25%;
         right: 0px;
         font-size: 1.7rem;
         color: rgb(236, 13, 13);
-        border: 1px solid rgb(213, 17, 17);
+        border: 1px solid rgb(165, 21, 21);
         cursor: pointer;
         transform: .2s;
         font-size: 1.2rem;
@@ -105,6 +105,12 @@ $main-info-size: 25%;
 
     &__delete-btn:active {
         background-color: rgb(119, 20, 20);
+    }
+
+    &__delete-btn:focus {
+        background-color: rgb(76, 19, 19);
+        border: 1px solid rgb(255, 0, 0);
+        outline: none;
     }
 }
 
